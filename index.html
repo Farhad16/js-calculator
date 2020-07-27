@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="calculatorShape">
+        <form action="" name="calculator">
+            <input type="text" name="screen" disabled>
+            <hr>
+            <input type="button" value="&radic;"
+                onclick="calculator.screen.value = Math.sqrt(calculator.screen.value) ">
+            <input type="button" value="CE" onclick="calculator.screen.value = ''">
+            <input type="button" value="C" onclick="calculator.screen.value = ''">
+            <input id="backspace" type="button" value="&#215;"
+                onclick="calculator.screen.value = calculator.screen.value.slice(0, -1)">
+            <br>
+
+            <input type="button" value="7" onclick="calculator.screen.value += '7'">
+            <input type="button" value="8" onclick="calculator.screen.value += '8'">
+            <input type="button" value="9" onclick="calculator.screen.value += '9'">
+            <input id="plus" type="button" value="&#43;" onclick="calculator.screen.value += '+'">
+            <br>
+
+            <input type="button" value="4" onclick="calculator.screen.value += '4'">
+            <input type="button" value="5" onclick="calculator.screen.value += '5'">
+            <input type="button" value="6" onclick="calculator.screen.value += '6'">
+            <input id="minus" type="button" value="&#8722;" onclick="calculator.screen.value += '-'">
+            <br>
+
+            <input type="button" value="1" onclick="calculator.screen.value += '1'">
+            <input type="button" value="2" onclick="calculator.screen.value += '2'">
+            <input type="button" value="3" onclick="calculator.screen.value += '3'">
+            <input id="multiply" type="button" value="&#8727;" onclick="calculator.screen.value += '*'">
+            <br>
+
+            <input id="zero" type="button" value="0" onclick="checkIsEmpty()">
+            <input type="button" value="." onclick="dotHandle()">
+            <input type="button" value="&#61;" onclick="calculator.screen.value = eval(calculator.screen.value)">
+            <input id="divide" type="button" value="&#247;" onclick="calculator.screen.value += '/'">
+        </form>
+    </div>
+
+
+    <script>
+        function checkIsEmpty() {
+            if (calculator.screen.value != '') {
+                calculator.screen.value += '0';
+            }
+            else {
+                calculator.screen.value = '';;
+            }
+        }
+
+        function dotHandle() {
+            if (calculator.screen.value != '') {
+                calculator.screen.value += '.';
+            }
+            else {
+                calculator.screen.value = '0' + '.';
+            }
+        }
+    </script>
+</body>
+
+</html>
